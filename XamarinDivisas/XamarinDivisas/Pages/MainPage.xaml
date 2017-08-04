@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinDivisas.Pages.MainPage"
+             Title="Divisas"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ScrollView>
+        <StackLayout
+            Padding="8"
+        >
+            <Label 
+                Text="Pesos:"
+            >
+            </Label>
+            <Entry 
+                Text="{Binding Pesos, Model=TwoWay}"
+                Keyboard="Numeric" 
+                Placeholder="Entre valor en pesos..."
+            >
+            </Entry>
+            <Button 
+                Command="{Binding ConvertCommand, Model=OneWay}"
+                Text="Convertir"
+                BackgroundColor="Navy"
+                TextColor="White"
+                HeightRequest="40"
+                BorderRadius="20"
+            >
+            </Button>
+            <Label 
+                Text="Dólares:"
+            >
+            </Label>
+            <Entry 
+                HorizontalTextAlignment="End"
+                Text="{Binding Dollars, Model=TwoWay, StringFormat='${0:N2}'}"
+                IsEnabled="false" 
+                Placeholder="Valor en dólares..."
+            >
+            </Entry>
+            <Label 
+                Text="Libras:">
+            </Label>
+            <Entry 
+                HorizontalTextAlignment="End"
+                Text="{Binding Pounds, Model=TwoWay, StringFormat='£{0:N2}'}"
+                IsEnabled="false" 
+                Placeholder="Valor en libras..."
+            >
+            </Entry>
+            <Label 
+                Text="Euros:"
+            >
+            </Label>
+            <Entry 
+                HorizontalTextAlignment="End"
+                Text="{Binding Euros, Model=TwoWay, StringFormat='€{0:N2}'}"
+                IsEnabled="false" 
+                Placeholder="Valor en euros..."
+            >
+            </Entry>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
